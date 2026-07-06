@@ -11,14 +11,13 @@ export default tseslint.config(
   eslint.configs.recommended,
   eslintPluginPrettierRecommended,
   {
-    // Explicitly target your typescript source files
     files: ['src/**/*.ts', 'test/**/*.ts'],
     languageOptions: {
       globals: {
         ...globals.node,
         ...globals.jest,
       },
-      sourceType: 'commonjs',
+      sourceType: 'module', // Updated from commonjs to module
     },
   },
   {
