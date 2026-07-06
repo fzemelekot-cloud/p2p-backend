@@ -9,10 +9,10 @@ export default tseslint.config(
     ignores: ['eslint.config.mjs'],
   },
   eslint.configs.recommended,
-  // Commenting out strict rules to get the initial baseline green
-  // ...tseslint.configs.recommendedTypeChecked,
   eslintPluginPrettierRecommended,
   {
+    // Explicitly target your typescript source files
+    files: ['src/**/*.ts', 'test/**/*.ts'],
     languageOptions: {
       globals: {
         ...globals.node,
@@ -22,6 +22,7 @@ export default tseslint.config(
     },
   },
   {
+    files: ['src/**/*.ts', 'test/**/*.ts'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
       'no-unused-vars': 'warn',
