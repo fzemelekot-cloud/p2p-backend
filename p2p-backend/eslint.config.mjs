@@ -13,11 +13,12 @@ export default tseslint.config(
   {
     files: ['src/**/*.ts', 'test/**/*.ts'],
     languageOptions: {
+      parser: tseslint.parser, // Explicitly use the TypeScript parser
       globals: {
         ...globals.node,
         ...globals.jest,
       },
-      sourceType: 'module', // Updated from commonjs to module
+      sourceType: 'module',
     },
   },
   {
