@@ -1,0 +1,43 @@
+# Dependency Directories
+node_modules/
+jspm_packages/
+web_modules/
+
+# Production Build Artifacts
+dist/
+build/
+out/
+
+# Application Backups & Snapshots
+backups/
+*.sql
+*.dump
+*.bak
+
+# Environment Variables & Sensitive Credentials
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+
+# Logging Systems
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing Coverage Data
+coverage/
+.nyc_output/
+
+# IDE and Operating System Files
+.DS_Store
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
