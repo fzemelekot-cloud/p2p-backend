@@ -17,6 +17,7 @@ const SIGNED_USDT_DELTA_PATTERN = /^([+-]?)(\d+)(?:\.(\d+))?$/;
 function parseDecimalParts(
   value: string,
   pattern: RegExp,
+  signed: boolean,
 ): { sign: string; wholePart: string; fractionPart: string } {
   if (typeof value !== 'string') {
     throw new Error('USDT amount must be a decimal string');
@@ -28,11 +29,17 @@ function parseDecimalParts(
     throw new Error('Invalid USDT amount');
   }
 
-  return {
-    sign: match[1] ?? '',
-    wholePart: match[2] ?? match[1],
-    fractionPart: match[3] ?? match[2] ?? '',
-  };
+  return signed
+    ? {
+        sign: match[1] ?? '',
+        wholePart: match[2] ?? '',
+        fractionPart: match[3] ?? '',
+      }
+    : {
+        sign: '',
+        wholePart: match[1] ?? '',
+        fractionPart: match[2] ?? '',
+      };
 }
 
 function decimalPartsToAtomicUnits(
@@ -60,6 +67,7 @@ export function parseUsdt(value: string): UsdtAmount {
   const { wholePart, fractionPart } = parseDecimalParts(
     value,
     USDT_AMOUNT_PATTERN,
+    false,
   );
 
   const atomicUnits = decimalPartsToAtomicUnits(
@@ -78,6 +86,7 @@ export function parseSignedUsdtDelta(value: string): SignedUsdtDelta {
   const { sign, wholePart, fractionPart } = parseDecimalParts(
     value,
     SIGNED_USDT_DELTA_PATTERN,
+    true,
   );
 
   const atomicUnits = decimalPartsToAtomicUnits(
