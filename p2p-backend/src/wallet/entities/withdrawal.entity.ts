@@ -12,7 +12,7 @@ export class Withdrawal {
   @Column()
   walletId: string;
 
-  @Column({ type: 'decimal', precision: 20, scale: 8 })
+  @Column({ type: 'decimal', precision: 20, scale: 6 })
   amount: string;
 
   @Column()
