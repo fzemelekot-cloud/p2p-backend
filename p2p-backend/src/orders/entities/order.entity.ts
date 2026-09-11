@@ -15,7 +15,7 @@ export class Order {
   @Column()
   sellerId: string;
 
-  @Column({ type: 'decimal', precision: 18, scale: 6 })
+  @Column({ type: 'decimal', precision: 20, scale: 6 })
   amount: string;
 
   @Column({
