@@ -23,8 +23,7 @@ export class WalletTransaction {
   })
   type: TransactionType;
 
-  // 🪙 Changed precision scale to 8 to match TRON/USDT fractional standards
-  @Column({ type: 'decimal', precision: 18, scale: 8 })
+  @Column({ type: 'decimal', precision: 20, scale: 6 })
   amount: string;
 
   // 🛡️ Added for Task 4: Prevents double-crediting by tracking on-chain TxIDs
