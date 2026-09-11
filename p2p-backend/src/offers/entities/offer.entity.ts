@@ -12,10 +12,10 @@ export class Offer {
   @Column()
   assetType: string;
 
-  @Column({ type: 'decimal', precision: 18, scale: 6 })
+  @Column({ type: 'decimal', precision: 20, scale: 6 })
   totalAmount: string;
 
-  @Column({ type: 'decimal', precision: 18, scale: 6 })
+  @Column({ type: 'decimal', precision: 20, scale: 6 })
   remainingAmount: string;
 
   @Column({ type: 'decimal', precision: 18, scale: 6 })
@@ -24,7 +24,7 @@ export class Offer {
   // Use the imported enum here
   @Column({
     type: 'enum',
-    enum: OfferStatus, 
+    enum: OfferStatus,
     default: OfferStatus.ACTIVE,
   })
   status: OfferStatus;
