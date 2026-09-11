@@ -9,10 +9,10 @@ export class Wallet {
   @Column({ unique: true })
   userId: string;
 
-  @Column({ type: 'decimal', precision: 18, scale: 8, default: '0.00000000' })
+  @Column({ type: 'decimal', precision: 20, scale: 6, default: '0.000000' })
   balance: string;
 
-  @Column({ type: 'decimal', precision: 18, scale: 8, default: '0.00000000' })
+  @Column({ type: 'decimal', precision: 20, scale: 6, default: '0.000000' })
   lockedBalance: string;
 
   // Legacy/Default field tracking (made nullable so it doesn't break existing mock entries)
